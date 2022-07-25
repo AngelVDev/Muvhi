@@ -1,0 +1,55 @@
+.movie-card {
+  width: 40vw;
+  height: 40vh;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+
+
+.details {
+  padding: 50px 0 0 50px;
+}
+
+.title {
+    color: rgb(0, 0, 0);
+    font-size: 8vh;
+    margin-bottom: 13px;
+    line-height: normal;
+    position: relative;
+}
+.title span {
+    margin-left: 12px;
+    background: #C4AF3D;
+    border-radius: 5px;
+    color: #544C21;
+    font-size: 14px;
+    padding: 0px 4px;
+  }
+.description {
+  bottom: 0px;
+  height: 200px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #B1B0AC;
+  
+}
+.column {
+    padding-left: 41px;
+    padding-top: 30px;
+    margin-left: 20px;
+    width: 480px;
+}
+
+.img{
+  height: 200px;
+  object-fit: contain;
+}
+.container2 {
+  display: flex;
+  flex-direction: row;
+}
+
+
