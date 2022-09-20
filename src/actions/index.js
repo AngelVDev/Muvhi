@@ -1,4 +1,4 @@
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY;
 const BASE_URL = "http://www.omdbapi.com/";
 
 export function getMovies(title) {
@@ -6,6 +6,7 @@ export function getMovies(title) {
     return fetch(`${BASE_URL}?apikey=${API_KEY}&s=${title}`)
       .then((response) => response.json())
       .then((movies) => {
+        console.log(API_KEY);
         dispatch({ type: "GET_MOVIES", payload: movies });
         console.log(movies);
       });
