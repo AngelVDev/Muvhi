@@ -38,7 +38,7 @@ export class Buscador extends Component {
               onChange={(e) => this.handleChange(e)}
             />
           </div>
-          <button type="submit">BUSCAR</button>
+          <button type="submit">Search</button>
         </form>
         <ul>
           {" "}
