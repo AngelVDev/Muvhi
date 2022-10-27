@@ -1,3 +1,4 @@
+import { Rating } from "@mui/material";
 import React from "react";
 import { connect } from "react-redux";
 import { getMovieDetail } from "../../actions/index";
@@ -20,8 +21,20 @@ class Movie extends React.Component {
         <h2>Released: {this.props.movieDetail.Release}</h2>
         <h2>Genre: {this.props.movieDetail.Genre}</h2>
         <img src={this.props.movieDetail.Poster} alt="Nope.jpg" />
-        <h2>Plot: {this.props.movieDetail.Plot}</h2>
         <h2>Actors: {this.props.movieDetail.Actors}</h2>
+        <h2>Plot: {this.props.movieDetail.Plot}</h2>
+        <>
+          <h2>Rating:</h2>
+          <Rating
+            name="customized-10"
+            precision={0.1}
+            defaultValue={0}
+            max={10}
+            value={this.props.movieDetail.imdbRating * 1}
+            readOnly
+          />
+          <h2>Language: {this.props.movieDetail.Language}</h2>
+        </>
       </div>
     );
   }
