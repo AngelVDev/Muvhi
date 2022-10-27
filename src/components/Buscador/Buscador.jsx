@@ -1,7 +1,9 @@
+import { IconButton } from "@mui/material";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { addMovieFavourite, getMovies } from "../../actions";
+import MultiActionAreaCard from "../Cards/Card.jsx";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import "./Buscador.css";
 
 export class Buscador extends Component {
@@ -11,6 +13,7 @@ export class Buscador extends Component {
       title: "",
     };
   }
+
   handleChange(event) {
     this.setState({ title: event.target.value });
   }
@@ -24,16 +27,13 @@ export class Buscador extends Component {
 
     return (
       <div>
-        <h2>Buscador</h2>
         <form className="form-container" onSubmit={(e) => this.handleSubmit(e)}>
           <div>
-            <label className="label" htmlFor="title">
-              Película:{" "}
-            </label>
             <input
               type="text"
               id="title"
               autoComplete="off"
+              placeholder="Search here"
               value={title}
               onChange={(e) => this.handleChange(e)}
             />
@@ -44,17 +44,21 @@ export class Buscador extends Component {
           {" "}
           {this.props.movies &&
             this.props.movies.map((movie) => (
-              <div key={movie.imdbID}>
-                <Link to={`/movie/${movie.imdbID}`}>
-                  {movie.Title}
-                  <>
-                    <img src={movie.Poster} alt="Nope.jpg" />
-                  </>
-                </Link>
-                <button onClick={() => this.props.addMovieFavourite(movie)}>
-                  FAV
-                </button>
-              </div>
+              <>
+                <MultiActionAreaCard
+                  id={movie.imdbID}
+                  poster={movie.Poster}
+                  title={movie.Title}
+                  text={movie.Plot}
+                  key={"div" + movie.imdbID}
+                />
+                <IconButton
+                  onClick={() => this.props.addMovieFavourite(movie)}
+                  aria-label="add to favorites"
+                >
+                  <FavoriteIcon />
+                </IconButton>
+              </>
             ))}
         </ul>
       </div>
