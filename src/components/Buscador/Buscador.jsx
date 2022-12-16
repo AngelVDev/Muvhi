@@ -1,4 +1,4 @@
-import { IconButton } from "@mui/material";
+import { Box, Button, Container, IconButton, Input } from "@mui/material";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addMovieFavourite, getMovies } from "../../actions";
@@ -26,19 +26,22 @@ export class Buscador extends Component {
     const { title } = this.state;
 
     return (
-      <div>
-        <form className="form-container" onSubmit={(e) => this.handleSubmit(e)}>
-          <div>
-            <input
-              type="text"
-              id="title"
-              autoComplete="off"
-              placeholder="Search here"
-              value={title}
-              onChange={(e) => this.handleChange(e)}
-            />
-          </div>
-          <button type="submit">Search</button>
+      <Box>
+        <form className='form-container' onSubmit={(e) => this.handleSubmit(e)}>
+          <Input
+            type='text'
+            id='title'
+            autoComplete='off'
+            placeholder='Search here'
+            value={title}
+            onChange={(e) => this.handleChange(e)}
+          />
+          <Button
+            sx={{ backgroundColor: "darkgoldenrod", color: "white" }}
+            type='submit'
+          >
+            Search
+          </Button>
         </form>
         <ul>
           {" "}
@@ -52,16 +55,10 @@ export class Buscador extends Component {
                   text={movie.Plot}
                   key={"div" + movie.imdbID}
                 />
-                <IconButton
-                  onClick={() => this.props.addMovieFavourite(movie)}
-                  aria-label="add to favorites"
-                >
-                  <FavoriteIcon />
-                </IconButton>
               </>
             ))}
         </ul>
-      </div>
+      </Box>
     );
   }
 }
