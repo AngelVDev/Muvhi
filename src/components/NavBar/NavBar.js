@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../logoHenry.svg';
 
 import './Navbar.css';
@@ -8,14 +8,16 @@ export default function NavBar() {
   return (
     <header className="navbar">
       <div>
-        <img
-          id="logoHenry"
-          src={Logo}
-          width="50"
-          height="50"
-          className="d-inline-block align-top"
-          alt="muvhiLogo"
-        />
+        <Link to={'/'}>
+          <img
+            id="logoHenry"
+            src={Logo}
+            width="50"
+            height="50"
+            className="d-inline-block align-top"
+            alt="muvhiLogo"
+          />
+        </Link>
       </div>
       <nav>
         <ul className="list">
