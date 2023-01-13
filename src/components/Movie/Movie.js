@@ -1,9 +1,10 @@
-import { Rating } from "@mui/material";
-import React from "react";
-import { connect } from "react-redux";
-import { getMovieDetail } from "../../actions/index";
-
-import "./Movie.css";
+import { Rating } from '@mui/material';
+import React from 'react';
+import { connect } from 'react-redux';
+import YouTube from 'react-youtube';
+import { getMovieDetail } from '../../actions/index';
+import { searchYouTube } from '../../middleware';
+import './Movie.css';
 
 const Movie = ({ movieDetail, getMovieDetail, match }) => {
   React.useEffect(() => {
@@ -11,32 +12,56 @@ const Movie = ({ movieDetail, getMovieDetail, match }) => {
     getMovieDetail(id);
   }, [getMovieDetail, match]);
 
-  return (
-    <div className='movie-card'>
-      <h1 className='title'>{movieDetail.Title}</h1>
-      <h2>Year: {movieDetail.Year}</h2>
-      <h2>Written by: {movieDetail.Writer}</h2>
-      <h2>Directed by: {movieDetail.Director}</h2>
-      <h2>Rated: {movieDetail.Rated}</h2>
-      <h2>Released: {movieDetail.Release}</h2>
-      <h2>Genre: {movieDetail.Genre}</h2>
-      <img src={movieDetail.Poster} alt='Nope.jpg' />
-      <h2>Actors: {movieDetail.Actors}</h2>
-      <h2>Plot: {movieDetail.Plot}</h2>
+  async function getterTrailerId(title) {
+    if (title) {
+      const trailer = await searchYouTube(title + ' trailer');
+      return trailer[0].keyId;
+    }
+  }
+
+  if (movieDetail.imdbID === match.params.id) {
+    return (
+      <div className="movie-card">
+        <h1 className="title">{movieDetail.Title}</h1>
+        <h2>Year: {movieDetail.Year}</h2>
+        <h2>Written by: {movieDetail.Writer}</h2>
+        <h2>Directed by: {movieDetail.Director}</h2>
+        <h2>Rated: {movieDetail.Rated}</h2>
+        <h2>Released: {movieDetail.Release}</h2>
+        <h2>Genre: {movieDetail.Genre}</h2>
+        <img src={movieDetail.Poster} alt="Nope.jpg" />
+        <h2>Actors: {movieDetail.Actors}</h2>
+        <h2>Plot: {movieDetail.Plot}</h2>
+        <>
+          {movieDetail.Title && (
+            <YouTube
+              videoId={getterTrailerId(movieDetail.Title)}
+              opts={{
+                width: '640',
+                height: '360',
+              }}
+            />
+          )}
+          <h2>Rating:</h2>
+          <Rating
+            name="customized-10"
+            precision={0.1}
+            defaultValue={0}
+            max={10}
+            value={movieDetail.imdbRating * 1}
+            readOnly
+          />
+          <h2>Language: {movieDetail.Language}</h2>
+        </>
+      </div>
+    );
+  } else {
+    return (
       <>
-        <h2>Rating:</h2>
-        <Rating
-          name='customized-10'
-          precision={0.1}
-          defaultValue={0}
-          max={10}
-          value={movieDetail.imdbRating * 1}
-          readOnly
-        />
-        <h2>Language: {movieDetail.Language}</h2>
+        <h1>LOADING</h1>
       </>
-    </div>
-  );
+    );
+  }
 };
 
 const mapStateToProps = (state) => ({
