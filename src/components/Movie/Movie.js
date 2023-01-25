@@ -7,6 +7,7 @@ import { searchYouTube } from '../../middleware';
 import './Movie.css';
 
 const Movie = ({ movieDetail, getMovieDetail, match }) => {
+  const [ytId, setYtId] = React.useState(null);
   React.useEffect(() => {
     let id = match.params.id;
     getMovieDetail(id);
@@ -15,7 +16,9 @@ const Movie = ({ movieDetail, getMovieDetail, match }) => {
   async function getterTrailerId(title) {
     if (title) {
       const trailer = await searchYouTube(title + ' trailer');
-      return trailer[0].keyId;
+      if (trailer.length) {
+        setYtId(trailer[0].keyId);
+      }
     }
   }
 
@@ -35,7 +38,9 @@ const Movie = ({ movieDetail, getMovieDetail, match }) => {
         <>
           {movieDetail.Title && (
             <YouTube
-              videoId={getterTrailerId(movieDetail.Title)}
+              videoId={
+                ytId === null ? getterTrailerId(movieDetail.Title) : ytId
+              }
               opts={{
                 width: '640',
                 height: '360',
