@@ -2,7 +2,7 @@ import { Rating } from '@mui/material';
 import React from 'react';
 import { connect } from 'react-redux';
 import YouTube from 'react-youtube';
-import { getMovieDetail } from '../../actions/index';
+import { getMovieDetail } from '../../redux/actions/index';
 import { searchYouTube } from '../../middleware';
 import './Movie.css';
 

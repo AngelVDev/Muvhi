@@ -1,9 +1,9 @@
-import { Avatar, ListItemAvatar, ListItemText } from "@mui/material";
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { removeMovieFavourite } from "../../actions";
-import "./Favorites.css";
+import { Avatar, ListItemAvatar, ListItemText } from '@mui/material';
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { removeMovieFavourite } from '../../redux/actions';
+import './Favorites.css';
 
 const ConnectedList = ({ moviesFav, removeMovieFavourite }) => {
   return (
@@ -16,7 +16,7 @@ const ConnectedList = ({ moviesFav, removeMovieFavourite }) => {
               <ListItemAvatar>
                 <Link to={`/movie/${movie.imdbID}`}>
                   <Avatar
-                    alt={`Avatar n°${movie.imdbID + 1}`}
+                    alt={`Avatar n°${movie.imdbID}`}
                     src={movie.Poster}
                     sx={{ width: 87, height: 87 }}
                   />
@@ -27,7 +27,7 @@ const ConnectedList = ({ moviesFav, removeMovieFavourite }) => {
             </>
           ))
         ) : (
-          <h3>No hay películas aún</h3>
+          <h3>No favourites yet</h3>
         )}
       </ul>
     </div>

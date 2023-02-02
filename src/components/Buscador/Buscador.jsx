@@ -2,7 +2,11 @@ import { Box, Button, Input } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
-import { addMovieFavourite, getMovies, getMoviesForHome } from '../../actions';
+import {
+  addMovieFavourite,
+  getMovies,
+  getMoviesForHome,
+} from '../../redux/actions';
 import MultiActionAreaCard from '../Cards/Card.jsx';
 import './Buscador.css';
 
@@ -18,7 +22,7 @@ const Buscador = ({ movies, getMovies }) => {
 
   React.useEffect(() => {
     dispatch(getMoviesForHome(thisYear));
-  }, [movies]);
+  });
 
   return (
     <Box>
