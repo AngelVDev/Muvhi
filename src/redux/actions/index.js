@@ -13,16 +13,25 @@ export function getMovies(title) {
 
 export function getMoviesForHome(year) {
   return async function (dispatch) {
-    const response = await fetch(
-      `${BASE_URL}?apikey=${API_KEY}&s=This&y=${year}`
-    );
-
-    const newResponse = await fetch(
-      `${BASE_URL}?apikey=${API_KEY}&s=This&y=${year - 1}`
-    );
-    const movies =
-      response.length > 4 ? await response.json() : await newResponse.json();
-    dispatch({ type: 'GET_MOVIES', payload: movies });
+    function response() {
+      return fetch(`${BASE_URL}?apikey=${API_KEY}&s=This&y=${year}`);
+    }
+    function otherCall() {
+      return fetch(`${BASE_URL}?apikey=${API_KEY}&s=This&y=${year - 1}`);
+    }
+    let movies;
+    let moviesUnJsoned;
+    response();
+    if (response.length > 4) {
+      moviesUnJsoned = await response();
+      movies = await moviesUnJsoned.json();
+    } else {
+      moviesUnJsoned = await otherCall();
+      movies = await moviesUnJsoned.json();
+    }
+    if (movies !== undefined) {
+      return dispatch({ type: 'GET_MOVIES', payload: movies });
+    }
   };
 }
 export function getMovieDetail(id) {
