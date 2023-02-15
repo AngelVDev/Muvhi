@@ -25,7 +25,7 @@ const Buscador = ({ movies, getMovies }) => {
   });
 
   return (
-    <Box>
+    <Box sx={{ display: 'block' }}>
       <form className="form-container" onSubmit={handleSubmit}>
         <Input
           type="text"
@@ -42,7 +42,7 @@ const Buscador = ({ movies, getMovies }) => {
           Search
         </Button>
       </form>
-      <ul>
+      <ul className="movies">
         {movies &&
           movies.map((movie) => (
             <>

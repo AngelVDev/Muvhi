@@ -37,7 +37,7 @@ export default function MultiActionAreaCard({ id, title, text, poster }) {
   return (
     <Card
       sx={{
-        maxWidth: 325,
+        maxWidth: 250,
         backgroundColor: '#3131319b',
         color: 'whitesmoke',
         marginBottom: '1.5rem',
