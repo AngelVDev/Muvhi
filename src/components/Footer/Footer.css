@@ -4,6 +4,11 @@
   color: cornsilk;
   width: 100%;
   max-height: 15%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 .member-footer-copyright {
   width: 100%;
@@ -71,4 +76,14 @@
 .social-link:link {
   color: white;
   text-decoration: none;
+}
+#footer-logo {
+  margin: 1rem 0 0 1rem;
+  max-height: 100px;
+  transition: 250ms;
+}
+#footer-logo:hover {
+  transition: 200ms;
+  filter: drop-shadow(0px 0px 4px rgb(255, 178, 78));
+  cursor: pointer;
 }
