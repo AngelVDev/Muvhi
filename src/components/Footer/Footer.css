@@ -62,6 +62,7 @@
 }
 .social-link:hover {
   background-color: #15171aeb;
+  box-shadow: 0px 0px 4px 2px #ffc653 inset;
   transition: 300ms;
 }
 .social-link:visited {
