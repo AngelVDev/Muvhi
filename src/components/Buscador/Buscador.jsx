@@ -19,7 +19,7 @@ const Buscador = () => {
 
   React.useEffect(() => {
     dispatch(getMoviesForHome(thisYear));
-  });
+  }, [dispatch, thisYear]);
 
   return (
     <Box sx={{ display: "block" }}>
@@ -47,7 +47,6 @@ const Buscador = () => {
                 id={movie.imdbID}
                 poster={movie.Poster}
                 title={movie.Title}
-                text={movie.Plot}
                 key={"div" + movie.imdbID}
                 entity={movie}
               />
@@ -57,14 +56,5 @@ const Buscador = () => {
     </Box>
   );
 };
-
-// const mapStateToProps = (state) => ({
-//   movies: state.moviesLoaded,
-// });
-
-// const mapDispatchToProps = (dispatch) => ({
-//   getMovies: (title) => dispatch(getMovies(title)),
-//   addMovieFavourite: (movie) => dispatch(addMovieFavourite(movie)),
-// });
 
 export default Buscador;
