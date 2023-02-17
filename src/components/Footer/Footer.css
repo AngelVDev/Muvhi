@@ -12,6 +12,7 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: flex-end;
+  margin-bottom: 0.7rem;
 }
 .made-by {
   margin-right: 2%;
