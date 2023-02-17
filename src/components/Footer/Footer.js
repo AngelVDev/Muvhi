@@ -4,7 +4,7 @@ import "./Footer.css";
 function Footer() {
   return (
     <div role='contentinfo' class='member-footer' id='member-footer'>
-      <img id='footer-logo' src='../../logoHenry.svg' />
+      <img id='footer-logo' alt='muvhilogo' src='../../logoHenry.svg' />
       <div class='social-links'>
         <a
           class='social-link'
