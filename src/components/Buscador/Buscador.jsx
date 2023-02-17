@@ -1,17 +1,14 @@
-import { Box, Button, Input } from '@mui/material';
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { connect } from 'react-redux';
-import {
-  addMovieFavourite,
-  getMovies,
-  getMoviesForHome,
-} from '../../redux/actions';
-import MultiActionAreaCard from '../Cards/Card.jsx';
-import './Buscador.css';
+import { Box, Button, Input } from "@mui/material";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-const Buscador = ({ movies, getMovies }) => {
-  const [title, setTitle] = useState('');
+import { getMovies, getMoviesForHome } from "../../redux/actions";
+import MultiActionAreaCard from "../Cards/Card.jsx";
+import "./Buscador.css";
+
+const Buscador = () => {
+  const [title, setTitle] = useState("");
+  const movies = useSelector((state) => state.moviesLoaded);
   const dispatch = useDispatch();
   const date = new Date();
   const thisYear = date.getFullYear();
@@ -25,24 +22,24 @@ const Buscador = ({ movies, getMovies }) => {
   });
 
   return (
-    <Box sx={{ display: 'block' }}>
-      <form className="form-container" onSubmit={handleSubmit}>
+    <Box sx={{ display: "block" }}>
+      <form className='form-container' onSubmit={handleSubmit}>
         <Input
-          type="text"
-          id="title"
-          autoComplete="off"
-          placeholder="Search here"
+          type='text'
+          id='title'
+          autoComplete='off'
+          placeholder='Search here'
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
         <Button
-          sx={{ backgroundColor: 'darkgoldenrod', color: 'white' }}
-          type="submit"
+          sx={{ backgroundColor: "darkgoldenrod", color: "white" }}
+          type='submit'
         >
           Search
         </Button>
       </form>
-      <ul className="movies">
+      <ul className='movies'>
         {movies &&
           movies.map((movie) => (
             <>
@@ -51,7 +48,8 @@ const Buscador = ({ movies, getMovies }) => {
                 poster={movie.Poster}
                 title={movie.Title}
                 text={movie.Plot}
-                key={'div' + movie.imdbID}
+                key={"div" + movie.imdbID}
+                entity={movie}
               />
             </>
           ))}
@@ -60,13 +58,13 @@ const Buscador = ({ movies, getMovies }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  movies: state.moviesLoaded,
-});
+// const mapStateToProps = (state) => ({
+//   movies: state.moviesLoaded,
+// });
 
-const mapDispatchToProps = (dispatch) => ({
-  getMovies: (title) => dispatch(getMovies(title)),
-  addMovieFavourite: (movie) => dispatch(addMovieFavourite(movie)),
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   getMovies: (title) => dispatch(getMovies(title)),
+//   addMovieFavourite: (movie) => dispatch(addMovieFavourite(movie)),
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Buscador);
+export default Buscador;

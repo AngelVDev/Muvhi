@@ -1,11 +1,13 @@
-import { Avatar, ListItemAvatar, ListItemText } from '@mui/material';
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { removeMovieFavourite } from '../../redux/actions';
-import './Favorites.css';
+import { Avatar, ListItemAvatar, ListItemText } from "@mui/material";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { removeMovieFavourite } from "../../redux/actions";
+import "./Favorites.css";
 
-const ConnectedList = ({ moviesFav, removeMovieFavourite }) => {
+const ConnectedList = () => {
+  const moviesFav = useSelector((state) => state.moviesFavourites);
+  const dispatch = useDispatch();
   return (
     <div>
       <h2>This are your favourites</h2>
@@ -23,7 +25,9 @@ const ConnectedList = ({ moviesFav, removeMovieFavourite }) => {
                 </Link>
               </ListItemAvatar>
               <ListItemText id={movie.imdbID} primary={`${movie.Title}`} />
-              <button onClick={() => removeMovieFavourite(movie.imdbID)} />
+              <button
+                onClick={() => dispatch(removeMovieFavourite(movie.imdbID))}
+              />
             </>
           ))
         ) : (
@@ -34,12 +38,4 @@ const ConnectedList = ({ moviesFav, removeMovieFavourite }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  moviesFav: state.moviesFavourites,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  removeMovieFavourite: (id) => dispatch(removeMovieFavourite(id)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ConnectedList);
+export default ConnectedList;
