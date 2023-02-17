@@ -95,7 +95,6 @@ function Footer() {
         </a>
       </div>
       <ul class='member-footer-links'>
-        <li class='member-footer-link-wrapper'></li>
         <li class='member-footer-link-wrapper'>
           <a class='member-footer-link' href='/'>
             <span class='member-footer-link-content'>Gift Cards</span>
