@@ -1,3 +1,8 @@
+.footer-wrap {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
 .member-footer {
   background-color: #303236;
   text-decoration: none;
