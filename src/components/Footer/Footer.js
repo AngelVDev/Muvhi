@@ -3,11 +3,11 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <div role='contentinfo' class='member-footer' id='member-footer'>
+    <div role='contentinfo' className='member-footer' id='member-footer'>
       <img id='footer-logo' alt='muvhilogo' src='../../logoHenry.svg' />
-      <div class='social-links'>
+      <div className='social-links'>
         <a
-          class='social-link'
+          className='social-link'
           href='https://www.facebook.com/'
           target='_blank'
           aria-label='facebook'
@@ -18,7 +18,7 @@ function Footer() {
             viewBox='0 0 24 24'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
-            class='svg-icon svg-icon-facebook-logo'
+            className='svg-icon svg-icon-facebook-logo'
           >
             <path
               fill-rule='evenodd'
@@ -29,7 +29,7 @@ function Footer() {
           </svg>
         </a>
         <a
-          class='social-link'
+          className='social-link'
           href='https://www.instagram.com/'
           target='_blank'
           aria-label='instagram'
@@ -40,7 +40,7 @@ function Footer() {
             viewBox='0 0 24 24'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
-            class='svg-icon svg-icon-instagram-logo'
+            className='svg-icon svg-icon-instagram-logo'
           >
             <path
               fill-rule='evenodd'
@@ -51,7 +51,7 @@ function Footer() {
           </svg>
         </a>
         <a
-          class='social-link'
+          className='social-link'
           href='https://twitter.com/'
           target='_blank'
           aria-label='twitter'
@@ -62,7 +62,7 @@ function Footer() {
             viewBox='0 0 24 24'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
-            class='svg-icon svg-icon-twitter-logo'
+            className='svg-icon svg-icon-twitter-logo'
           >
             <path
               fill-rule='evenodd'
@@ -73,7 +73,7 @@ function Footer() {
           </svg>
         </a>
         <a
-          class='social-link'
+          className='social-link'
           href='https://www.youtube.com/'
           target='_blank'
           aria-label='youtube'
@@ -84,7 +84,7 @@ function Footer() {
             viewBox='0 0 24 24'
             fill='none'
             xmlns='http://www.w3.org/2000/svg'
-            class='svg-icon svg-icon-youtube-logo'
+            className='svg-icon svg-icon-youtube-logo'
           >
             <path
               fill-rule='evenodd'
@@ -95,52 +95,54 @@ function Footer() {
           </svg>
         </a>
       </div>
-      <ul class='member-footer-links'>
-        <li class='member-footer-link-wrapper'>
-          <a class='member-footer-link' href='/'>
-            <span class='member-footer-link-content'>Gift Cards</span>
+      <ul className='member-footer-links'>
+        <li className='member-footer-link-wrapper'>
+          <a className='member-footer-link' href='/'>
+            <span className='member-footer-link-content'>Gift Cards</span>
           </a>
         </li>
-        <li class='member-footer-link-wrapper'>
-          <a class='member-footer-link' href='/'>
-            <span class='member-footer-link-content'>Press area</span>
+        <li className='member-footer-link-wrapper'>
+          <a className='member-footer-link' href='/'>
+            <span className='member-footer-link-content'>Press area</span>
           </a>
         </li>
-        <li class='member-footer-link-wrapper'>
-          <a class='member-footer-link' href='/'>
-            <span class='member-footer-link-content'>Investors</span>
+        <li className='member-footer-link-wrapper'>
+          <a className='member-footer-link' href='/'>
+            <span className='member-footer-link-content'>Investors</span>
           </a>
         </li>
-        <li class='member-footer-link-wrapper'>
-          <a class='member-footer-link' href='/'>
-            <span class='member-footer-link-content'>Jobs</span>
+        <li className='member-footer-link-wrapper'>
+          <a className='member-footer-link' href='/'>
+            <span className='member-footer-link-content'>Jobs</span>
           </a>
         </li>
-        <li class='member-footer-link-wrapper'>
-          <a class='member-footer-link' href='/'>
-            <span class='member-footer-link-content'>Corp</span>
+        <li className='member-footer-link-wrapper'>
+          <a className='member-footer-link' href='/'>
+            <span className='member-footer-link-content'>Corp</span>
           </a>
         </li>
-        <li class='member-footer-link-wrapper'>
-          <a class='member-footer-link' href='/'>
-            <span class='member-footer-link-content'>Contact us</span>
+        <li className='member-footer-link-wrapper'>
+          <a className='member-footer-link' href='/'>
+            <span className='member-footer-link-content'>Contact us</span>
           </a>
         </li>
       </ul>
-      <div class='member-footer-copyright'>
-        <a class='member-footer-link' href='/Cookies'>
-          <span class='member-footer-link-content'>Cookies preferences</span>
+      <div className='member-footer-copyright'>
+        <a className='member-footer-link' href='/Cookies'>
+          <span className='member-footer-link-content'>
+            Cookies preferences
+          </span>
         </a>
-        <a class='member-footer-link' href='/'>
-          <span class='member-footer-link-content'>Terms</span>
+        <a className='member-footer-link' href='/'>
+          <span className='member-footer-link-content'>Terms</span>
         </a>
-        <a class='member-footer-link' href='/'>
-          <span class='member-footer-link-content'>Help Center</span>
+        <a className='member-footer-link' href='/'>
+          <span className='member-footer-link-content'>Help Center</span>
         </a>
-        <a class='member-footer-link' href='/'>
-          <span class='member-footer-link-content'>Privacy</span>
+        <a className='member-footer-link' href='/'>
+          <span className='member-footer-link-content'>Privacy</span>
         </a>
-        <span class='made-by'>© Made by Angel Scutari</span>
+        <span className='made-by'>© Made by Angel Scutari</span>
       </div>
     </div>
   );
