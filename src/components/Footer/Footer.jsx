@@ -15,6 +15,7 @@ function Footer() {
             className='social-link'
             href='https://www.facebook.com/'
             target='_blank'
+            rel='noreferrer'
             aria-label='facebook'
           >
             <FacebookIcon />
@@ -23,6 +24,7 @@ function Footer() {
             className='social-link'
             href='https://www.instagram.com/'
             target='_blank'
+            rel='noreferrer'
             aria-label='instagram'
           >
             <InstagramIcon />
@@ -31,6 +33,7 @@ function Footer() {
             className='social-link'
             href='https://twitter.com/'
             target='_blank'
+            rel='noreferrer'
             aria-label='twitter'
           >
             <TwitterIcon />
@@ -39,6 +42,7 @@ function Footer() {
             className='social-link'
             href='https://www.youtube.com/'
             target='_blank'
+            rel='noreferrer'
             aria-label='youtube'
           >
             <YoutubeIcon />
