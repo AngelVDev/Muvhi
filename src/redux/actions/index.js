@@ -14,10 +14,10 @@ export function getMovies(title) {
 export function getMoviesForHome(year) {
   return async function (dispatch) {
     function response() {
-      return fetch(`${BASE_URL}?apikey=${API_KEY}&s=This&y=${year}`);
+      return fetch(`${BASE_URL}?apikey=${API_KEY}&s=Live&y=${year}`);
     }
     function otherCall() {
-      return fetch(`${BASE_URL}?apikey=${API_KEY}&s=This&y=${year - 1}`);
+      return fetch(`${BASE_URL}?apikey=${API_KEY}&s=Live&y=${year - 1}`);
     }
     let movies;
     let moviesUnJsoned;
